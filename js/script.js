@@ -57,5 +57,31 @@ function deleteAllTodos() {
 
 // Function to filter todo items (to be implemented)
 function filterTodos() {
-    /// To be implemented
+    const selectedDate = document.getElementById('todo-date').value;
+    const todoList = document.getElementById('todo-list');
+
+    // If no date is selected, show all todos
+    if (selectedDate === '') {
+        renderTodos();
+        return;
+    }
+
+    // Filter todos that match the selected date
+    const filteredTodos = todos.filter(item => item.date === selectedDate);
+
+    // Clear current list
+    todoList.innerHTML = '';
+
+    // Display filtered results
+    filteredTodos.forEach((item) => {
+        todoList.innerHTML += `
+        <li>
+            <p class="text-2xl">
+                ${item.todo}
+                <span class="text-sm text-gray-500">(${item.date})</span>
+            </p>
+            <hr />
+        </li>
+        `;
+    });
 }
