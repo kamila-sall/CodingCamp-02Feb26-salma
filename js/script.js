@@ -75,7 +75,7 @@ function filterTodos() {
         return;
     }
 
-    // Clear current list before displaying filtered results
+    // Clear current list
     todoList.innerHTML = '';
 
     // Display filtered results
