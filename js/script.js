@@ -69,7 +69,13 @@ function filterTodos() {
     // Filter todos that match the selected date
     const filteredTodos = todos.filter(item => item.date === selectedDate);
 
-    // Clear current list
+    // If no todo that matches that date
+    if (filteredTodos.length === 0) {
+        todoList.innerHTML = `<li>No todos found for this date</li>`;
+        return;
+    }
+
+    // Clear current list before displaying filtered results
     todoList.innerHTML = '';
 
     // Display filtered results
